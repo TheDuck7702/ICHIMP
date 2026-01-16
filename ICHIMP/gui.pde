@@ -53,7 +53,26 @@ public void slider1_change2(GSlider source, GEvent event) { //_CODE_:Exersize_Sl
 public void button1_click1(GButton source, GEvent event) { //_CODE_:Add_Food_B:350284:
   println("button1 - GButton >> GEvent." + event + " @ " + millis());
   
+  //get the val from the text boxes to create a new food item
+  //.getText is a medthod from G4P libary that gets the text from the text box
+  String foodName = CF_Name_TB.getText();        // Gets the name they typed
+  float protein = Float.parseFloat(CF_Protien_TB.getText());  // Gets protein value
+  float carbs = Float.parseFloat(CF_Carbs_TB.getText());      // Gets carbs value
+  float fats = Float.parseFloat(CF_Fats_TB.getText());        // Gets fats value
+  float cost = Float.parseFloat(CF_Cost_TB.getText());        // Gets cost value
+
+  //make a new FoodItem object with the values form the textbox
+  FoodItem newFood = new FoodItem(foodName, protein, carbs, fats, cost);
+
+  //add the new food object to the food manager's custom food list
+  foodmanager.addFood(newFood);
   
+  //.clear is another method from G4P that clears the text box
+  CF_Name_TB.clear();
+  CF_Protien_TB.clear();
+  CF_Carbs_TB.clear();
+  CF_Fats_TB.clear();
+  CF_Cost_TB.clear();
   
 } //_CODE_:Add_Food_B:350284:
 

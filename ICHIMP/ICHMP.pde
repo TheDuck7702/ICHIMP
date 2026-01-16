@@ -2,14 +2,14 @@
 import g4p_controls.*;
 
 //global var
-FoodManager = manager;
+FoodManager = foodmanager;
 
 public void setup(){
   size(480, 320, JAVA2D);//ask teach
   createGUI();
   customGUI();
 
-  manager = new foodManager();
+  foodmanager = new FoodManager();
   
   FoodItem food1 = new FoodItem("egg", 6,3,8,6);
   food1.getSummery();
