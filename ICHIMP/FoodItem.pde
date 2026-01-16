@@ -8,6 +8,8 @@ class FoodItem {
   float carbs;
   float fats;
   float cost;
+  
+  
 
 
   // Constructor
