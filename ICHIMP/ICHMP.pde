@@ -1,15 +1,17 @@
 
 import g4p_controls.*;
+//
+FoodManager FM = new FoodManager();
 
-//global var
-FoodManager = foodmanager;
-
-public void setup(){
-  size(480, 320, JAVA2D);//ask teach
+void setup(){
+  size(1000, 320, JAVA2D);
   createGUI();
   customGUI();
+  //
+  FM = new FoodManager();
+  FM.addPresets();
+  Preset_Meals_DB.setItems(FM.getNames(), FM.getNames().length - 1);
 
-  foodmanager = new FoodManager();
   
   FoodItem food1 = new FoodItem("egg", 6,3,8,6);
   food1.getSummery();
@@ -19,13 +21,42 @@ public void setup(){
   
 }
 
-public void draw(){
+void draw(){
   background(230);
+ 
+
+  //Draw boxes for each meal type
+  stroke(0);
+  strokeWeight(1);
+  noFill();
+
+  //Breakfast
+  rect(10, 10, 150, 150);
+  //Lunch
+  rect(180, 10, 150, 150);
+  //Dinner
+  rect(350, 10, 150, 150);
+  //Snack
+  rect(10, 180, 150, 100);
+
+//for the labels on the screen
+  fill(0);
+  textSize(16);
+  text("Breakfast", 15, 30);
+  text("Lunch", 185, 30);
+  text("Dinner", 355, 30);
+  text("Snack", 15, 205);
   
+  //to draw the names of the food on the screen in their boxs
+  FM.drawFood("Breakfast", 20, 40);
+  FM.drawFood("Lunch", 260, 40);
+  FM.drawFood("Dinner", 20, 200);
+  FM.drawFood("Snack", 260, 200);
+
 }
 
 // Use this method to add additional statements
 // to customise the GUI controls
-public void customGUI(){
+void customGUI(){
 
 }

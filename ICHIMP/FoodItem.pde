@@ -31,5 +31,9 @@ class FoodItem {
     println(name, "has", protein * 4 + carbs * 4 + fats * 9, "calories");
     
   }
+  
+  String foodItemToString() {
+    return  name + " has  " + fats + " grams of fat, " + protein + " grams of protein " + carbs + " grams of carbs, and " + cost + " dollers.";
+  }
 
 }
