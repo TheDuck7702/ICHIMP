@@ -57,8 +57,7 @@ class FoodManager {
         return customFoods.get(i);
       }
     }
-    //return ___; ask teacher what do i put there to get null
-    return null;
+    return null; // to make sure it returns nothing or a foodITem oject
   }
   
   void drawFood(String mealType, float x, float y) {
@@ -72,22 +71,22 @@ class FoodManager {
     }
     
     if(mealType.equals("Lunch")) {
-       for (int i = 0; i < breakfastFoods.size(); i++) {
-        text(breakfastFoods.get(i).name, x, y);
+       for (int i = 0; i < lunchFoods.size(); i++) {
+        text(lunchFoods.get(i).name, x, y);
         y += 20;
       }
     }
     
     if(mealType.equals("Dinner")) {
-       for (int i = 0; i < breakfastFoods.size(); i++) {
-        text(breakfastFoods.get(i).name, x, y);
+       for (int i = 0; i < dinnerFoods.size(); i++) {
+        text(dinnerFoods.get(i).name, x, y);
         y += 20;
       }
     }
     
     if(mealType.equals("Snack")) {
-       for (int i = 0; i < breakfastFoods.size(); i++) {
-        text(breakfastFoods.get(i).name, x, y);
+       for (int i = 0; i < snackFoods.size(); i++) {
+        text(snackFoods.get(i).name, x, y);
         y += 20;
       }
     }

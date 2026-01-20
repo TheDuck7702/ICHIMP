@@ -48,10 +48,10 @@ void draw(){
   text("Snack", 15, 205);
   
   //to draw the names of the food on the screen in their boxs
-  FM.drawFood("Breakfast", 20, 40);
-  FM.drawFood("Lunch", 260, 40);
-  FM.drawFood("Dinner", 20, 200);
-  FM.drawFood("Snack", 260, 200);
+  FM.drawFood("Breakfast", 20, 50);
+  FM.drawFood("Lunch", 190, 50);
+  FM.drawFood("Dinner", 360, 50);
+  FM.drawFood("Snack", 20, 225);
 
 }
 

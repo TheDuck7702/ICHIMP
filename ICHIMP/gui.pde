@@ -131,7 +131,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.CYAN_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  label1 = new GLabel(this, 769, 88, 120, 22);
+  label1 = new GLabel(this, 774, 154, 120, 22);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Add Food To:");
   label1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
@@ -191,7 +191,7 @@ public void createGUI(){
   CF_Cost_TB.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   CF_Cost_TB.setOpaque(true);
   CF_Cost_TB.addEventHandler(this, "textfield4_change1");
-  Meal_Type_DP = new GDropList(this, 905, 172, 90, 100, 4, 10);
+  Meal_Type_DP = new GDropList(this, 898, 82, 90, 100, 4, 10);
   Meal_Type_DP.setItems(loadStrings("list_654466"), 0);
   Meal_Type_DP.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   Meal_Type_DP.addEventHandler(this, "dropList1_click1");
@@ -200,12 +200,12 @@ public void createGUI(){
   Add_Food_B.setText("Add New Food");
   Add_Food_B.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   Add_Food_B.addEventHandler(this, "Add_Food_b");
-  Preset_Meals = new GLabel(this, 773, 170, 118, 20);
+  Preset_Meals = new GLabel(this, 778, 80, 118, 20);
   Preset_Meals.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   Preset_Meals.setText("Preset Meals");
   Preset_Meals.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   Preset_Meals.setOpaque(false);
-  Preset_Meals_DB = new GDropList(this, 906, 89, 90, 80, 3, 10);
+  Preset_Meals_DB = new GDropList(this, 895, 155, 90, 120, 5, 10);
   Preset_Meals_DB.setItems(loadStrings("list_909547"), 0);
   Preset_Meals_DB.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   Preset_Meals_DB.addEventHandler(this, "dropList1_click3");
@@ -213,7 +213,7 @@ public void createGUI(){
   TIme.setText("Time Control");
   TIme.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   TIme.setOpaque(false);
-  Time_Slide = new GSlider(this, 883, 34, 106, 30, 10.0);
+  Time_Slide = new GSlider(this, 883, 34, 114, 37, 10.0);
   Time_Slide.setShowValue(true);
   Time_Slide.setLimits(7, 0, 14);
   Time_Slide.setNumberFormat(G4P.INTEGER, 0);
@@ -224,7 +224,7 @@ public void createGUI(){
   Time_Slider_Lable.setText("Time In Days");
   Time_Slider_Lable.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   Time_Slider_Lable.setOpaque(false);
-  button1 = new GButton(this, 795, 233, 80, 30);
+  button1 = new GButton(this, 775, 269, 80, 30);
   button1.setText("Add Food To Table ");
   button1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   button1.addEventHandler(this, "button1_click1");
