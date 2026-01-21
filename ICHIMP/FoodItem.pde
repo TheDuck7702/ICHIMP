@@ -2,38 +2,32 @@
 
 class FoodItem {
   
-//Feilds:
+// Feilds: ///
   String name;
   float protein;
   float carbs;
   float fats;
   float cost;
   
-  
-
-
-  // Constructor
+/// Constructors: ///
   FoodItem(String name, float protein, float carbs, float fats, float cost) {
     this.name = name;
     this.protein = protein;
     this.carbs = carbs;
     this.fats = fats;
     this.cost = cost;
-  
   }
   
-  //Methods
-  void getSummery() {
+/// Methods ///
+  void getSummery() { //print summery to console for debugging resons
     println(name, "has", protein, "grams of protein, ", carbs, "grams of carbs, ", fats, "grams of fat, and is",cost,"dollers"   );
   }
   
-  void getCalories() {
+  void getCalories() { //print the total calories
     println(name, "has", protein * 4 + carbs * 4 + fats * 9, "calories");
-    
-  }
-  
-  String foodItemToString() {
-    return  name + " has  " + fats + " grams of fat, " + protein + " grams of protein " + carbs + " grams of carbs, and " + cost + " dollers.";
   }
 
+  String foodItemToString() { //to changed the FoodItem objects into a string to ddisplay on the console
+    return  name + " has  " + fats + " grams of fat, " + protein + " grams of protein " + carbs + " grams of carbs, and " + cost + " dollers.";
+  }
 }
