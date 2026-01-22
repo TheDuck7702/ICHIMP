@@ -140,22 +140,22 @@ class FoodManager {
     
     //base case
     if (sortee.size() <= 1) {
-      return sotree;
+      return sortee;
     }
     
     //midpoint clac
-    int midPT = list.size() /2;
+    int midPT = sortee.size() /2;
     
     //init the left and right arraylists
     ArrayList<NutritionSorter> left = new ArrayList<NutritionSorter>();
     ArrayList<NutritionSorter> right = new ArrayList<NutritionSorter>();
     
     //loops teh right and  left sides of array with the midpoitn to fill the arrayloist (L and R)
-    for (int i = 0; i < mid; i++) { //lleft side
+    for (int i = 0; i < midPT; i++) { //lleft side
       left.add(sortee.get(i)); //gets(with .get) the value of the ideration and adds it to the left arraylist (with .add)
     }
     
-     for (int i = 0; i < sortee.size(); i++) { // right side
+     for (int i = midPT; i < sortee.size(); i++) { // right side
       right.add(sortee.get(i)); //gets(with .get) the value of the ideration and adds it to the right arraylist (with .add)
     }
     
@@ -164,7 +164,7 @@ class FoodManager {
     right = sortSummary_MERGESORT(right);
     
     //merge the sorted left and right arrays with merge sort
-    return merge(left, right);
+    return mergeArraysNS(left, right);
   }
   
   ArrayList<NutritionSorter> mergeArraysNS( ArrayList<NutritionSorter> a, ArrayList<NutritionSorter> b ) {
@@ -177,14 +177,14 @@ class FoodManager {
       
      while (i < a.size() && j < b.size()) {
         
-       if ( a.get(i) < b.get(i) ) {
-         c.get(k) = a.get(k);
+       if ( a.get(i).total < b.get(i).total ) { //.total is in the NutritionSorter tab
+         c.add(a.get(i)); //c.get(k) = a.get(k); //becuse arraylsits are dinamic, we cant use == so we have to add (use .add) to append a new thing to the end of the list like c.add(a.get(i));
          i++;
        }
         
        else {
-         c.get(k) = b.get(j);
-         i++;
+         c.add(b.get(j));
+         j++;
        }
         
        k++;
@@ -192,14 +192,14 @@ class FoodManager {
       
      if ( i == a.size() ) {
        for ( int m = j; m < b.size(); m++ ) {
-         c.get(k) = b.get(m);
+         c.add(b.get(m));
          k++;
        }
      }
       
       else {
         for ( int m = i; m < a.size(); m++ ) {
-          c.get(k) = a.get(m);
+          c.add(a.get(m));
         }
       }
        
@@ -207,7 +207,7 @@ class FoodManager {
   } // end of method
   
   void drawSummary(float x, float y) { // to draw the summary on the screen
-    for ( int i = 0; summaryTotals.size(); i++)  {
+    for ( int i = 0; i < summaryTotals.size(); i++)  {
       NutritionSorter n = summaryTotals.get(i);
       text(n.name + ":" + n.total, x, y);
       y = y + 20;

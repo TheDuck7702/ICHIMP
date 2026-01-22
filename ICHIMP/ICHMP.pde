@@ -37,9 +37,9 @@ void draw(){
   //Dinner
   rect(350, 10, 150, 150);
   //Snack
-  rect(10, 180, 150, 100);
+  rect(10, 180, 150, 120);
   //summary box
-  rect(520, 10, 200, 150);
+  rect(180, 180, 150, 120);
 
 //for the labels on the screen
   fill(0);
@@ -48,6 +48,7 @@ void draw(){
   text("Lunch", 185, 30);
   text("Dinner", 355, 30);
   text("Snack", 15, 205);
+  text("Summery", 185, 205);
   
   //to draw the names of the food on the screen in their boxs
   FM.drawFood("Breakfast", 20, 50);
@@ -57,10 +58,10 @@ void draw(){
   
   //to draw and build the summery statment
   FM.buildSummery();
-  FM.drawSummary(530, 20);
+  FM.drawSummary(200, 230);
 }
 
-}
+
 
 // Use this method to add additional statements
 // to customise the GUI controls

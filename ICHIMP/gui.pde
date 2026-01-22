@@ -228,6 +228,10 @@ public void createGUI(){
   button1.setText("Add Food To Table ");
   button1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   button1.addEventHandler(this, "button1_click1");
+  label8 = new GLabel(this, 332, 170, 84, 64);
+  label8.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label8.setText("The Values Are Sorted From Least To Greatest.");
+  label8.setOpaque(false);
 }
 
 // Variable declarations 
@@ -253,3 +257,4 @@ GLabel TIme;
 GSlider Time_Slide; 
 GLabel Time_Slider_Lable; 
 GButton button1; 
+GLabel label8; 
