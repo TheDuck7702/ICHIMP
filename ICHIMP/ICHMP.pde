@@ -38,6 +38,8 @@ void draw(){
   rect(350, 10, 150, 150);
   //Snack
   rect(10, 180, 150, 100);
+  //summary box
+  rect(520, 10, 200, 150);
 
 //for the labels on the screen
   fill(0);
@@ -52,6 +54,11 @@ void draw(){
   FM.drawFood("Lunch", 190, 50);
   FM.drawFood("Dinner", 360, 50);
   FM.drawFood("Snack", 20, 225);
+  
+  //to draw and build the summery statment
+  FM.buildSummery();
+  FM.drawSummary(530, 20);
+}
 
 }
 

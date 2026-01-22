@@ -15,6 +15,7 @@ class FoodManager {
     lunchFoods = new ArrayList<FoodItem>();
     dinnerFoods = new ArrayList<FoodItem>();
     snackFoods = new ArrayList<FoodItem>();
+    summaryTotals = new ArrayList<NutritionSorter>();
   }
  
 /// Methods: ///  
@@ -124,15 +125,98 @@ class FoodManager {
       cost = cost + f.cost;
     }
     
-    summaryTotals.clear();
+    summaryTotals.clear(); // clears the arraylost
     summaryTotals.add(new NutritionSorter("Protien", protein));
     summaryTotals.add(new NutritionSorter("Carbs", carbs));
     summaryTotals.add(new NutritionSorter("Fats", fats));
     summaryTotals.add(new NutritionSorter("Cost ($)", cost));
+    
+    //sort (by merge sort)
+    
+    summaryTotals = sortSummary_MERGESORT(summaryTotals);
   }
   
-  void sortSummery() {
+  ArrayList<NutritionSorter> sortSummary_MERGESORT( ArrayList<NutritionSorter> sortee) { //sortee is the one that needs to be sorted. 
     
-    //use merge sort
+    //base case
+    if (sortee.size() <= 1) {
+      return sotree;
+    }
     
+    //midpoint clac
+    int midPT = list.size() /2;
+    
+    //init the left and right arraylists
+    ArrayList<NutritionSorter> left = new ArrayList<NutritionSorter>();
+    ArrayList<NutritionSorter> right = new ArrayList<NutritionSorter>();
+    
+    //loops teh right and  left sides of array with the midpoitn to fill the arrayloist (L and R)
+    for (int i = 0; i < mid; i++) { //lleft side
+      left.add(sortee.get(i)); //gets(with .get) the value of the ideration and adds it to the left arraylist (with .add)
+    }
+    
+     for (int i = 0; i < sortee.size(); i++) { // right side
+      right.add(sortee.get(i)); //gets(with .get) the value of the ideration and adds it to the right arraylist (with .add)
+    }
+    
+    //Now to merge sort the mergesorted left and right arrays (RECURRCION)
+    left = sortSummary_MERGESORT(left);
+    right = sortSummary_MERGESORT(right);
+    
+    //merge the sorted left and right arrays with merge sort
+    return merge(left, right);
   }
+  
+  ArrayList<NutritionSorter> mergeArraysNS( ArrayList<NutritionSorter> a, ArrayList<NutritionSorter> b ) {
+    //inspired by Merge SOrt SOLUTION in part 6 
+    
+     ArrayList<NutritionSorter> c = new  ArrayList<NutritionSorter>();
+     int i = 0;
+     int j = 0;
+     int k = 0;
+      
+     while (i < a.size() && j < b.size()) {
+        
+       if ( a.get(i) < b.get(i) ) {
+         c.get(k) = a.get(k);
+         i++;
+       }
+        
+       else {
+         c.get(k) = b.get(j);
+         i++;
+       }
+        
+       k++;
+     }
+      
+     if ( i == a.size() ) {
+       for ( int m = j; m < b.size(); m++ ) {
+         c.get(k) = b.get(m);
+         k++;
+       }
+     }
+      
+      else {
+        for ( int m = i; m < a.size(); m++ ) {
+          c.get(k) = a.get(m);
+        }
+      }
+       
+      return c;
+  } // end of method
+  
+  void drawSummary(float x, float y) { // to draw the summary on the screen
+    for ( int i = 0; summaryTotals.size(); i++)  {
+      NutritionSorter n = summaryTotals.get(i);
+      text(n.name + ":" + n.total, x, y);
+      y = y + 20;
+    }
+  } //end of method
+    
+    
+  
+      
+      
+      
+   }//end of clkass
