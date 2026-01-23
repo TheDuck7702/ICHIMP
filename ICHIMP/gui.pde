@@ -37,14 +37,6 @@ public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:CF_Co
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:Meal_Type_DP:654466:
   println("Meal - GDropList >> GEvent." + event + " @ " + millis());
   
- 
-  //add to the texbox
-
-
-  
-  
-
-  
   } //_CODE_:Meal_Type_DP:654466:
 
 public void Add_Food_b(GButton source, GEvent event) { //_CODE_:Add_Food_B:350284:
@@ -122,6 +114,15 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:9819
   
 } //_CODE_:button1:981941:
 
+public void button2_click1(GButton source, GEvent event) { //_CODE_:exportCSV:648889:
+  println("exportCSV - GButton >> GEvent." + event + " @ " + millis());
+  
+  // to export the table as a csv
+  saveStrings("FoodSummary.txt", new String[]{ FM.buildCSV() }); 
+  //saves the string we made it the buildCSV method in the food manager to a new text files called FoodSummary.txt.
+  
+} //_CODE_:exportCSV:648889:
+
 
 
 // Create all the GUI controls. 
@@ -131,7 +132,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.CYAN_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  label1 = new GLabel(this, 774, 154, 120, 22);
+  label1 = new GLabel(this, 778, 110, 120, 22);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Add Food To:");
   label1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
@@ -191,47 +192,52 @@ public void createGUI(){
   CF_Cost_TB.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   CF_Cost_TB.setOpaque(true);
   CF_Cost_TB.addEventHandler(this, "textfield4_change1");
-  Meal_Type_DP = new GDropList(this, 898, 82, 90, 100, 4, 10);
+  Meal_Type_DP = new GDropList(this, 900, 12, 90, 100, 4, 10);
   Meal_Type_DP.setItems(loadStrings("list_654466"), 0);
   Meal_Type_DP.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   Meal_Type_DP.addEventHandler(this, "dropList1_click1");
   Add_Food_B = new GButton(this, 565, 265, 96, 30);
   Add_Food_B.setTextAlign(GAlign.LEFT, GAlign.MIDDLE);
   Add_Food_B.setText("Add New Food");
-  Add_Food_B.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
+  Add_Food_B.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   Add_Food_B.addEventHandler(this, "Add_Food_b");
-  Preset_Meals = new GLabel(this, 778, 80, 118, 20);
+  Preset_Meals = new GLabel(this, 778, 12, 118, 20);
   Preset_Meals.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   Preset_Meals.setText("Preset Meals");
   Preset_Meals.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   Preset_Meals.setOpaque(false);
-  Preset_Meals_DB = new GDropList(this, 895, 155, 90, 120, 5, 10);
+  Preset_Meals_DB = new GDropList(this, 900, 111, 90, 120, 5, 10);
   Preset_Meals_DB.setItems(loadStrings("list_909547"), 0);
   Preset_Meals_DB.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   Preset_Meals_DB.addEventHandler(this, "dropList1_click3");
-  TIme = new GLabel(this, 778, 12, 94, 36);
+  TIme = new GLabel(this, 788, 227, 94, 36);
   TIme.setText("Time Control");
   TIme.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   TIme.setOpaque(false);
-  Time_Slide = new GSlider(this, 883, 34, 114, 37, 10.0);
+  Time_Slide = new GSlider(this, 882, 255, 114, 37, 10.0);
   Time_Slide.setShowValue(true);
   Time_Slide.setLimits(7, 0, 14);
   Time_Slide.setNumberFormat(G4P.INTEGER, 0);
   Time_Slide.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   Time_Slide.setOpaque(false);
   Time_Slide.addEventHandler(this, "slider1_change3");
-  Time_Slider_Lable = new GLabel(this, 883, 6, 80, 20);
+  Time_Slider_Lable = new GLabel(this, 900, 232, 80, 20);
   Time_Slider_Lable.setText("Time In Days");
   Time_Slider_Lable.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   Time_Slider_Lable.setOpaque(false);
-  button1 = new GButton(this, 775, 269, 80, 30);
+  button1 = new GButton(this, 789, 167, 80, 30);
   button1.setText("Add Food To Table ");
-  button1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
+  button1.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   button1.addEventHandler(this, "button1_click1");
   label8 = new GLabel(this, 332, 170, 84, 64);
   label8.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label8.setText("The Values Are Sorted From Least To Greatest.");
+  label8.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   label8.setOpaque(false);
+  exportCSV = new GButton(this, 429, 178, 80, 30);
+  exportCSV.setText("Export As CSV");
+  exportCSV.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  exportCSV.addEventHandler(this, "button2_click1");
 }
 
 // Variable declarations 
@@ -258,3 +264,4 @@ GSlider Time_Slide;
 GLabel Time_Slider_Lable; 
 GButton button1; 
 GLabel label8; 
+GButton exportCSV; 

@@ -23,7 +23,7 @@ class FoodManager {
     customFoods.add(f);
   }
   
-  void allFood( ) { //to return a summery
+  void allFood( ) { //to return a summery for debugging
     for(int i = 0; i < customFoods.size(); i++){
       FoodItem printVar = customFoods.get(i);
       println(printVar.foodItemToString());
@@ -207,13 +207,25 @@ class FoodManager {
   } // end of method
   
   void drawSummary(float x, float y) { // to draw the summary on the screen
-    for ( int i = 0; i < summaryTotals.size(); i++)  {
+    for ( int i = 0; i < summaryTotals.size(); i++)  {  //loops thought the summery totals and writes the one as a text them moves 20 pixals down to write the next one
       NutritionSorter n = summaryTotals.get(i);
       text(n.name + ":" + n.total, x, y);
       y = y + 20;
     }
   } //end of method
     
+  String buildCSV() {
+    // the command \n is used to make a new line (https://processing.org/reference/String.html - 3rd paragraph)
+    String headerCSV = "Name, Protein, Carbs, Fats, Cost\n";
+    
+    //for loop to loop though all foodItem toget all info and append to the string
+    for (int i = 0; i < customFoods.size(); i++) {
+      FoodItem fI = customFoods.get(i);
+      headerCSV = headerCSV + fI.toCSVformat() + "\n";  //add the formated string to the headerCSV string and add a new line afet that
+    }
+    
+    return headerCSV; //return so the saveString can use it in the gui
+  }
     
   
       

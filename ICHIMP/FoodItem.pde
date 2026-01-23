@@ -30,4 +30,9 @@ class FoodItem {
   String foodItemToString() { //to changed the FoodItem objects into a string to ddisplay on the console
     return  name + " has  " + fats + " grams of fat, " + protein + " grams of protein " + carbs + " grams of carbs, and " + cost + " dollers.";
   }
+  
+  //I plan to be able to export as CSV by just exporting strings to a .txt file.
+  String toCSVformat() { //CSV has very spicific formatting of the commas (,) so i cant use getSummery
+    return name + "," + protein + "," + carbs + "," + fats + "," + cost;
+  }
 }

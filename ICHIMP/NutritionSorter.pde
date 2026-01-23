@@ -13,9 +13,5 @@ class NutritionSorter {
   }
   
   //methods
-  
-  
-    
-    
-    
+  //having no methed is intenional bacuse we use this class as a data type or object holder. Its just the container for the sorted summery data which we use for the summery statment 
   }
